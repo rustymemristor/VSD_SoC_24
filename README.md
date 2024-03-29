@@ -1,5 +1,8 @@
 # VSD_SoC_24
 Repository containing information and instructions provided during VSD-IAT
+
+## Glossary
+TBD
 ## Lab-1 Inception of Open Source EDA, OPENLANE and the sky130 PDK
 ### Let the flow begin! 
 ```
