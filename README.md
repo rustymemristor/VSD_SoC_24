@@ -2,7 +2,21 @@
 Repository containing information and instructions provided during VSD-IAT
 
 ## Glossary
-TBD
+### Floorplanning
+Step in which all blocks or macros are placed in the chip (core). It also involves creating the iopin placement, power and ground grids.
+Some important terms are:
+```math 
+Aspect\Ratio = frac{Height\of\the\core}{Width\of\the\core}
+```
+**Core** is defined as the area within which the netlist is placed. (The logic)
+**Die** is the area containing the core. It can be thought of as an outline.
+**Core Utilization** defines the area occupied by the cells and macros. 100% means no space for addition
+of logic/circuits (say buffers, amplifiers etc) or the routing wires. Hence standard practice is to aim for ~50% to 60% core utilization, leaving enough to make additions and connections.
+**Design Exchange File** called DEF and contains definitions of rows, standard cells, nets etc. It may also contain physical design information.
+**Library Exchange File** called LEF and contains information regarding cells, metal layers, vias and design rules.
+
+
+
 ## Lab-1 Inception of Open Source EDA, OPENLANE and the sky130 PDK
 ### Let the flow begin! 
 ```
@@ -67,3 +81,5 @@ Flop\;Ratio = \frac{1613}{14876} = 0.1084296854
 ```math
 \%Flop\;Ratio = 10.84296854
 ```
+## Lab-2 Floorplanning and Intro to library cells
+### 
