@@ -42,6 +42,7 @@ Decoupling Capacitors
 	9. All blocks are decoupled to reduce crosstalk, increase noise margin.
 
 Power planning
+
 	1. If a block is constantly being repeated, with a decouplng capacitor,
      the Driver must maintain the logic to load. This requires the same voltage as provided.
 
