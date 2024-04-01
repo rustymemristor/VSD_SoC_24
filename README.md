@@ -31,6 +31,16 @@ Decoupling Capacitors
 
 	5. essentially this is an issue of noise margins. When the output is ambiguous,
      its an issue as the logic is corrupt. 
+    6. We need to reduce distance between source and logic, which is not always possible.
+
+	7. Decoupling capacitors are placed parallel to the source voltage, allowing current
+     draw to occur from the capacitor, removing the effects of R	L. The Capacitor is charged 
+     through the RL parasitics.
+
+	8. A decoupling capacitor "decouples" the logic and the source. 
+
+	9. All blocks are decoupled to reduce crosstalk, increase noise margin.
+
 Some important terms are:
 ```math 
 Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
