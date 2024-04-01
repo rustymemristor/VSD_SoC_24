@@ -15,6 +15,7 @@ Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
 **Core Utilization** defines the area occupied by the cells and macros. 100% means no space for addition  
 of logic/circuits (say buffers, amplifiers etc) or the routing wires.   
 Hence standard practice is to aim for ~50% to 60% core utilization, leaving enough to make additions and connections  
+
 **Design Exchange File** called DEF and contains definitions of rows, standard cells, nets etc. It may also contain physical design information.
 
 **Library Exchange File** called LEF and contains information regarding cells, metal layers, vias and design rules.
