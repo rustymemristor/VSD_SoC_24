@@ -18,6 +18,17 @@ Defining locations of preplaced cells
 
 	6. Come up with a design scenario suitable for the functionality.  
 
+Decoupling Capacitors
+
+	1. Switching causes most current draw.
+
+	2. inherent resistance and inductance cause voltage drop.
+
+	3. VSS needs to be able to sink all current flowing when being pulled down.
+
+	4. This means the circuit may not produce proper output as threshold is not crossed.
+
+	5. essentially this is an issue of noise margins. When the output is ambiguous, its an issue as the logic is corrupt. 
 Some important terms are:
 ```math 
 Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
