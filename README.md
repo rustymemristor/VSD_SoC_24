@@ -161,7 +161,7 @@ navigate to picorv32a design directory and use
 nano config.tcl
 ```
 and add the lines 
-'''
+```
 set::env(FP_IO_VMETAL) 4
 set::env(FP_IO_HMETAL) 3
 ```
