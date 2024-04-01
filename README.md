@@ -41,6 +41,24 @@ Decoupling Capacitors
 
 	9. All blocks are decoupled to reduce crosstalk, increase noise margin.
 
+Power planning
+	1. If a block is constantly being repeated, with a decouplng capacitor,
+     the Driver must maintain the logic to load. This requires the same voltage as provided.
+
+    2. Ground bounce occurs when logic changes and multiple capacitors dump the voltage to ground.
+     If bounce exceeds   noise margin, output is affected
+
+	3. Voltage droop occurs when multiple capacitors require voltage to attain logic high state.
+     Again this affects noise margin.
+
+	4. This is due to a single PSU.
+
+	5. addressing this can be done by separate PSUs.
+
+	6. It reduces the chances of one PSU causing voltage droop or ground bounce.
+
+	7. Power "Meshing" combines multiple Vsources/grounds in a grid like pattern.
+
 Some important terms are:
 ```math 
 Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
