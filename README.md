@@ -148,7 +148,8 @@ Following the synthesis, we must run the floorplan. The floorplan essentially de
 ```
 run_floorplan
 ```
-This outputs a floorplan parameter file in the runs/currentrun/			based on the priority
+![die_sarea](vsdimages/T2/die_area.png)
+Produces the above file based on the priority
 	1. specific pdk instances
 	2. config.tcl file held locally
 	3. configuration/floorplan.tcl
