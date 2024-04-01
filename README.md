@@ -143,4 +143,26 @@ Flop\;Ratio = \frac{1613}{14876} = 0.1084296854
 \%Flop\;Ratio = 10.84296854
 ```
 ## Lab-2 Floorplanning and Intro to library cells
-### 
+### Floorplan
+Following the synthesis, we must run the floorplan. The floorplan essentially decides the preplacement of cells, IO, and power/ground grids.
+```
+run_floorplan
+```
+This outputs a floorplan parameter file in the runs/currentrun/			based on the priority
+	1. specific pdk instances
+	2. config.tcl file held locally
+	3. configuration/floorplan.tcl
+
+![defaultfloorplan](vsdimages/T2/config_floorplan.png)
+
+Lets modify the config.tcl for picorv32a, adding specific vertical/horizontal metal IO.
+navigate to picorv32a design directory and use 
+```
+nano config.tcl
+```
+and add the lines 
+'''
+set::env(FP_IO_VMETAL) 4
+set::env(FP_IO_HMETAL) 3
+```
+![modifiedconfig](vsdimages/T2/modifiedconfigtclVHmetal.png)
