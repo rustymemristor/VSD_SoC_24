@@ -14,7 +14,8 @@ Defining locations of preplaced cells
 
 	4. The biggest advantage is single implementation and reusing the same implementation  
 
-	5. termed as preplaced as every cells functionality is being implemented 	and placed only once and must be done before placement and routing. Once fixed, they cannot be moved.  
+	5. termed as preplaced as every cells functionality is being implemented and placed 
+    only once and must be done before placement and routing. Once fixed, they cannot be moved.  
 
 	6. Come up with a design scenario suitable for the functionality.  
 
@@ -28,7 +29,8 @@ Decoupling Capacitors
 
 	4. This means the circuit may not produce proper output as threshold is not crossed.
 
-	5. essentially this is an issue of noise margins. When the output is ambiguous, its an issue as the logic is corrupt. 
+	5. essentially this is an issue of noise margins. When the output is ambiguous,
+     its an issue as the logic is corrupt. 
 Some important terms are:
 ```math 
 Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
