@@ -6,7 +6,7 @@ Repository containing information and instructions provided during VSD-IAT
 Step in which all blocks or macros are placed in the chip (core). It also involves creating the iopin placement, power and ground grids.
 Some important terms are:
 ```math 
-Aspect\Ratio = frac{Height\of\the\core}{Width\of\the\core}
+Aspect\Ratio = frac{Height of the core}{Width of the core}
 ```
 **Core** is defined as the area within which the netlist is placed. (The logic)  
 
