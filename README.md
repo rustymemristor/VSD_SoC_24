@@ -4,8 +4,8 @@ Repository containing information and instructions provided during VSD-IAT
 ## Glossary
 ### Floorplanning
 Step in which all blocks or macros are placed in the chip (core). It also involves creating the iopin placement, power and ground grids.
+Defining locations of preplaced cells
 
-Define locations of preplaced cells
 	1. Combinational logic can be split up.  
 
 	2. The circuit can be split into "blocks".  
@@ -17,7 +17,7 @@ Define locations of preplaced cells
 	5. termed as preplaced as every cells functionality is being implemented 	and placed only once and must be done before placement and routing. Once fixed, they cannot be moved.  
 
 	6. Come up with a design scenario suitable for the functionality.  
-    
+
 Some important terms are:
 ```math 
 Aspect\;Ratio = \frac{Height\;of\;the\;core}{Width\;of\;the\;core}
