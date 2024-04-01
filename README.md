@@ -150,6 +150,7 @@ run_floorplan
 ```
 ![die_sarea](vsdimages/T2/die_area.png)
 Produces the above file based on the priority
+
 	1. specific pdk instances
 	2. config.tcl file held locally
 	3. configuration/floorplan.tcl
