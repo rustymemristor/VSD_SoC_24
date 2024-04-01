@@ -155,6 +155,11 @@ Produces the above file based on the priority
 	2. config.tcl file held locally
 	3. configuration/floorplan.tcl
 
+Some parameters are specified including:
+
+	1. UNITS DISTANCE MICRONS 1000
+	2. DIE AREA (x0,y0) (x1, y1)
+	We can use this to find the total area of the die, ```math 660685*671405 = 443587.212425 (um)^2 ```
 ![defaultfloorplan](vsdimages/T2/config_floorplan.png)
 
 Lets modify the config.tcl for picorv32a, adding specific vertical/horizontal metal IO.
