@@ -231,3 +231,26 @@ Zooming in we can see individual blocks and the power grid:
 The cells present between the blocks and the IO pins are tap cells: 
 
 ![tapcells](vsdimages/T2/tapcell.png)
+
+### Modified Floorplan
+
+One of the biggest advantages of the OPENLANE flow is that changes can be made on the fly, allowing us to change the design if it is not as expected initially. 
+Taking an example of the floorplan IO, post using the command
+```
+run_floorplan
+```
+
+We change the environment parameter for the IO using
+```
+set ::env(FP_IO_MODE) 2
+```
+
+This sets the IO placement to a asymmetric distribution, with some pins overlapping. This type is commonly referred to as the "Hungarian" Placement
+Viewing the changes will again require magic so we will run
+
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+And zooming in to the IO pins we observe the changed design
+
+![Changed floorplan IO](vsdimages/T3/hungarianio.png)
