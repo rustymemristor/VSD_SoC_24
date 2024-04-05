@@ -346,24 +346,23 @@ A new window with the spice generated waveform will appear. We are interested in
 ![spicewav](vsdimages/T3/spicewav.png)
 Viewing the values at critical points,
 
-
-		```math 
-
-			Fall;\Transition;\Time	= \div{Time\;Taken\;by\;output\;To\;fall\;To\;80%\;of\;final\;value}{Time\;Taken\;by\;output\;To\;fall\;To\;20%\;of\;final\;value}
-			
-		```
+$
+	Fall\;Transition\;Time	= \frac{Time\;Taken\;by\;output\;To\;fall
+	\;To\;80\%\;of\;final\;value}{Time\;Taken\;by\;output\;To\;fall
+	\;To\;20\%\;of\;final\;value} = 
+$
 
 ![falltran](vsdimages/T3/falltran.png)
 	
-	2. Rise Transition Time
+Rise Transition Time
 
 ![risetran](vsdimages/T3/risetran.png)
 
-	3. Cell Rise Delay
+Cell Rise Delay
 		
 ![cellrise](vsdimages/T3/cellrisedelay.png)
 	
-	4. Cell Fall Delay
+Cell Fall Delay
 		
 ![cellfall](vsdimages/T3/cellfalldelay.png)
 
