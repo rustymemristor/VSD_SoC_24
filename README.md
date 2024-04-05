@@ -231,7 +231,7 @@ Zooming in we can see individual blocks and the power grid:
 The cells present between the blocks and the IO pins are tap cells: 
 
 ![tapcells](vsdimages/T2/tapcell.png)
-
+## Lab-3 Magic Layout and Cell Characterization
 ### Modified Floorplan
 
 One of the biggest advantages of the OPENLANE flow is that changes can be made on the fly, allowing us to change the design if it is not as expected initially. 
@@ -260,3 +260,78 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 And zooming in to the IO pins we observe the changed design
 
 ![Changed floorplan IO](vsdimages/T3/hungarianio.png)
+
+### Cell Characterization
+
+The next step of SoC design is to calculate the cell parameters, a step known as characterization of a cell. In this process, we calculate
+
+	1. Cell Rise and Fall Time 
+	2. Cell Rise and Fall Delay
+
+First we require the cell, which can be obtained from ``` git clone https://github.com/nickson-jose/vsdstdcelldesign.git```
+
+After cloning, lets move it into the working directory, use ```mv vsdstdcelldesign ~/Desktop/work/tools/openlane_working_dir/openlane/designs/```
+ 
+Enter the directory  ```cd ~/Desktop/work/tools/openlane_working_dir/openlane/designs/vsdstdcelldesign```
+
+To open the inverter design, use 
+
+```magic -d XR -T "/libs/sky130A.tech" mag sky130_inv.mag```
+
+![invertercell](vsdimages/T3/inv_magic.png)
+
+Center using ```s``` and then ```v```
+
+Now let's verify if it is an inverter. Hover over the either cells, and use ```s``` to select and type ```:what```
+The TKCON window will show the layers. One should be a PMOS and the other the NMOS.
+
+![invertercell](vsdimages/T3/inv_confirm.png)
+
+#### Spice Generation
+
+In the TKCON console type ```extract all``` this creates a sky130_inv.ext file in the root directory.
+
+Next, to generate a spice file type ```ext2spice cthresh 0 rthresh 0``` the cthresh and rthresh specifications extracts the parasitics of the circuit as well.
+
+Finally, type ```ext2spice```.
+
+![ext2spice](vsdimages/T3/ext2spice.png)
+
+Opening the root directory, we will see another new file, sky130_inv.spice
+We can use this file to simulate in ngspice. 
+First however lets open it and modify it to our specs type ``` gvim sky130_inv.spice ```.
+
+A new window will open containing the spice file.
+
+![spiceview](vsdimages/T3/spice.png)
+
+Observing the file, we'll need to change a few things. Modify the file as shown below
+```
+option scale=0.01u 
+include ./libs/pshort.lib
+include ./libs/nshort.lib
+//. subckt sky130_inv A Y VPWR VGND
+M1000 Y A VPWR VPWR pshort_model. 0w=37 1=23
++ ad=1443 pd=152 as=1517 ps=156
+M1001 Y A VGND VGND nshort_model. 0 w=34 1=23
++ ad=1435 pd=152 as=1365
+ps=148
+VDD VPWR 0 3.3V
+VSS VGND
+0 OV
+Va A VGND PULSE(OV 3.3V 0 0.1ns 0.ins 2ns 4ns)
+CO A Y 0.0754fF
+C1 Y VPWR 0.117fF
+C2 A VPWR 0.0774fF
+C3 Y VGND 0.279fF
+C4 A VGND 0.45fF
+// C5 VPWR VGND 0.781f
+//. ends .tran in 20n
+.control run
+endc
+end
+```
+![spicemodview](vsdimages/T3/spicemod.png)
+
+
+
