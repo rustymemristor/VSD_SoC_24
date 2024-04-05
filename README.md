@@ -315,7 +315,7 @@ M1000 Y A VPWR VPWR pshort_model. 0w=37 1=23
 + ad=1443 pd=152 as=1517 ps=156
 M1001 Y A VGND VGND nshort_model. 0 w=34 1=23
 + ad=1435 pd=152 as=1365
-ps=148
+ps=148̦
 VDD VPWR 0 3.3V
 VSS VGND
 0 OV
@@ -326,12 +326,48 @@ C2 A VPWR 0.0774fF
 C3 Y VGND 0.279fF
 C4 A VGND 0.45fF
 // C5 VPWR VGND 0.781f
-//. ends .tran in 20n
+//. ends 
+.tran in 20n
 .control run
 endc
 end
 ```
 ![spicemodview](vsdimages/T3/spicemod.png)
+
+Save and close the file using ```!wq```
+
+To run ngspice simulation, use 
+``` ngspice sky130_inv.spice ```
+
+An ngspice terminal will open, and list different parameters it analyzed
+Type ```plot y vs time a ```
+
+A new window with the spice generated waveform will appear. We are interested in calculating values at 20%, 50% and 80%, so using the mouse, right click to zoom in an area, and left click to show the values at that point in the terminal.
+![spicewav](vsdimages/T3/spicewav.png)
+Viewing the values at critical points,
+
+
+		```math 
+
+			Fall;\Transition;\Time	= \div{Time\;Taken\;by\;output\;To\;fall\;To\;80%\;of\;final\;value}{Time\;Taken\;by\;output\;To\;fall\;To\;20%\;of\;final\;value}
+			
+		```
+
+![falltran](vsdimages/T3/falltran.png)
+	
+	2. Rise Transition Time
+
+![risetran](vsdimages/T3/risetran.png)
+
+	3. Cell Rise Delay
+		
+![cellrise](vsdimages/T3/cellrisedelay.png)
+	
+	4. Cell Fall Delay
+		
+![cellfall](vsdimages/T3/cellfalldelay.png)
+
+
 
 
 
