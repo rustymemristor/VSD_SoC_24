@@ -347,22 +347,30 @@ A new window with the spice generated waveform will appear. We are interested in
 Viewing the values at critical points,
 
 $
-	Fall\;Transition\;Time	= \frac{Time\;Taken\;by\;output\;To\;fall
-	\;To\;80\%\;of\;final\;value}{Time\;Taken\;by\;output\;To\;fall
-	\;To\;20\%\;of\;final\;value} = 
+	Fall\;Transition\;Time	= {Time\;Taken\;by\;Output\;To\;Fall\;To\;80\%\;of\;Final\;Value}-{Time\;Taken\;by\;Output\;To\;Fall\;To\;20\%\;of\;Final\;Value}\\
+	Fall\;Transition\;Time = 42.11 ps
 $
 
 ![falltran](vsdimages/T3/falltran.png)
 	
-Rise Transition Time
+$
+	Rise\;Transition\;Time	= {Time\;Taken\;by\;Output\;To\;Rise\;To\;80\%\;of\;Final\;Value}-{Time\;Taken\;by\;Output\;To\;Rise\;To\;20\%\;of\;Final\;Value}\\
+	Rise\;Transition\;Time =  63.94 ps
+$
 
 ![risetran](vsdimages/T3/risetran.png)
 
-Cell Rise Delay
+$
+	Cell\;Rise\;Delay	= {Time\;Taken\;by\;Output\;To\;Rise\;To\;50\%\;of\;Final\;Value}-{Time\;Taken\;by\;Input\;To\;Rise\;To\;50\%\;of\;Final\;Value}\\
+	Cell\;Rise\;Delay =  60.59 ps
+$
 		
 ![cellrise](vsdimages/T3/cellrisedelay.png)
 	
-Cell Fall Delay
+$
+	Cell\;Fall\;Delay	= {Time\;Taken\;by\;Output\;To\;Fall\;To\;50\%\;of\;Final\;Value}-{Time\;Taken\;by\;Input\;To\;Fall\;To\;50\%\;of\;Final\;Value}\\
+	Cell\;Fall\;Delay =  27.97 ps
+$
 		
 ![cellfall](vsdimages/T3/cellfalldelay.png)
 
