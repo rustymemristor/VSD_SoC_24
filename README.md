@@ -374,7 +374,54 @@ $
 		
 ![cellfall](vsdimages/T3/cellfalldelay.png)
 
+This concludes the cell characterization of the inverter!
 
+### Magic Layouts and DRC
+
+The site  http://opencircuitdesign.com/magic/Technologyfiles/TheMagicTechnologyFileManual details the use of the magic tool.
+
+As we are working with the skywater PDK, we need to know the design rules to be followed. We can visit  https://skywater-pdk.readthedocs.io/en/main/rules/ for the same.
+
+Go to a preferred folder and type 
+
+```wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz```
+
+followed by
+
+```tar xfz drc_tests.tgz```
+
+to untar the file.
+
+next use ```cd drc_tests``` and ```ls``` to list all the contained files.
+![directory](vsdimages/T3/drc_call.png)
+
+To start magic, we use ```magic -d XR &``` for better display graphics using XR instead of the default X11.
+Using the GUI, click open to view the Met3.mag file in the viewer.	
+As previously detailed, select a cell and in the TK console type ```cif see VIA2``` to view the mask layer for via2, used in the final GDSII that is generated.
+![met3 spacing](vsdimages/T3/drcwhy.png)
+![via2](vsdimages/T3/feedback.png)
+
+#### Errors in Polysilicon rules
+
+Close the Met3.mag file and open poly.mag or in the tk console type
+```load poly.mag```
+Looking at rule 9, found on the skywater website, we see the spacing is not correct, but magic is not reporting any DRC error.
+![polyrule](vsdimages/T3/polyspec.png)
+To correct this, open the file sky130A.tech in a text editor of your choice.
+To find poly.9, we can use ```ctrl+f``` and type poly.9. Two instances of poly.9 appear, and need to be changed as shown below
+![beforefix](vsdimages/T3/beforefix.png)
+![polynonres](vsdimages/T3/allpolynonres.png)
+
+In both cases, replace 
+
+```alldiff``` with ```allpolynonres```
+Save and close.
+then in magic's console use tech load sky130A.tech
+and use ```drc check``` to see any drc violations.
+![firstfix](vsdimages/T3/semifix.png)
+ 
+But there is also an issue of the pres and the diff/tap.
+Open the sky130A.tech file again and make the changes as shown.
 
 
 
